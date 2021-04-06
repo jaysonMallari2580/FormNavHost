@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- TODO: Update blank fragment layout -->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/back_button_my_first_name"
+            android:layout_width="@dimen/back_icon"
+            android:layout_height="@dimen/back_icon"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_margin="@dimen/app_margin"
+            app:icon="@drawable/ic_arrow_back_ios_white_24dp"
+            android:textSize="@dimen/cretate_account_button_font_size"
+            app:cornerRadius="@dimen/continue_button_radius"
+            />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/form_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/mountain_image_margin_left"
+            android:layout_marginTop="@dimen/mountain_image_margin_top"
+            app:layout_constraintTop_toBottomOf="@+id/back_button_my_first_name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:textSize="@dimen/mountain_welcome_font"
+            android:textStyle="bold"
+            android:text="@string/my_first_name"/>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/form_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/form_text_view"
+            android:layout_margin="@dimen/text_input_layout_margin"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/form_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/mountain_image_margin_left"
+            android:layout_marginTop="@dimen/mountain_image_margin_top"
+            app:layout_constraintTop_toBottomOf="@+id/form_edit_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="@string/my_first_name_hint"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/continue_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/form_hint"
+            android:layout_margin="@dimen/cretate_account_button_margin"
+            android:text="@string/my_continue"
+            android:padding="@dimen/cretate_account_button_padding"
+            android:textSize="@dimen/cretate_account_button_font_size"
+            android:backgroundTint="@color/continue_button_background_color"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:strokeColor="@color/white"
+            app:cornerRadius="@dimen/continue_button_radius"
+            android:textColor="@color/white"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

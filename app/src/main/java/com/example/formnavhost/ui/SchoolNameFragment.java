@@ -35,14 +35,14 @@ public class SchoolNameFragment extends Fragment {
         return binding.getRoot();
     }
 
-    @SuppressLint("ResourceAsColor")
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
 
         if(binding.formEditText != null ){
-            binding.continueButton.setBackgroundColor(R.color.continue_button_background_color);
+            binding.continueButton.setBackgroundColor(requireActivity().getColor(R.color.continue_button_background_color));
         }
 
         binding.formTextView.setText(R.string.my_school);

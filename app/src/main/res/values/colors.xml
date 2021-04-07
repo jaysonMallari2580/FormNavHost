@@ -12,8 +12,9 @@
     <color name="well_done_background_color">#fc7741</color>
 
 
-    <color name="continue_button_background_color">#fe5665</color>
 
+    <color name="continue_button_background_color">#fe5665</color>
+    <color name="continue_button_background_color_start">#f9fafb</color>
 
     <color name="gender_button_font_color">#9e9e9e</color>
 

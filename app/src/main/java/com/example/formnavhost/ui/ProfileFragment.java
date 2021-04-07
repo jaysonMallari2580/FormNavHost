@@ -15,6 +15,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.example.formnavhost.R;
 import com.example.formnavhost.databinding.FormEntryBinding;
 import com.example.formnavhost.databinding.ProfileFragmentBinding;
+import com.google.android.material.textview.MaterialTextView;
 
 public class ProfileFragment extends Fragment {
 
@@ -39,6 +40,7 @@ public class ProfileFragment extends Fragment {
         binding.emailTv.setText(requireArguments().get("email").toString());
         binding.schoolNameTv.setText(requireArguments().get("school_name").toString());
 
+
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -46,6 +48,13 @@ public class ProfileFragment extends Fragment {
             }
         });
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+
 
     private void returnToNameFragment() {
         NavHostFragment.findNavController(this).navigate(R.id.action_profile_fragment_pop);

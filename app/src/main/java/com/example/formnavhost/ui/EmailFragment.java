@@ -1,19 +1,14 @@
 package com.example.formnavhost.ui;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.formnavhost.R;
@@ -35,18 +30,17 @@ public class EmailFragment extends Fragment {
         return binding.getRoot();
     }
 
-    @SuppressLint("ResourceAsColor")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         if(binding.formEditText != null ){
-            binding.continueButton.setBackgroundColor(R.color.continue_button_background_color);
+            binding.continueButton.setBackgroundColor(requireActivity().getColor(R.color.continue_button_background_color));
         }
 
         binding.formTextView.setText(R.string.my_email);
         binding.formHint.setText(R.string.my_email_hint);
-        binding.editTextHint.setHint("Enter your Email Address . . .");
+        binding.editTextHint.setText("Enter your E");
 
 
         binding.continueButton.setOnClickListener(v -> {

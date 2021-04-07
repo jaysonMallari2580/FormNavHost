@@ -1,12 +1,11 @@
 package com.example.formnavhost.ui;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,14 +31,37 @@ public class NameFragment extends Fragment {
         return binding.getRoot();
     }
 
-    @SuppressLint("ResourceAsColor")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        if(binding.formEditText != null ){
-            binding.continueButton.setBackgroundColor(R.color.continue_button_background_color);
-        }
+        binding.formEditText.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(binding.formEditText.getEditText().toString().length() > 0 || binding.formEditText.getEditText() == null){
+                    binding.continueButton.setBackgroundColor(requireActivity().getColor(R.color.continue_button_background_color));
+                    binding.continueButton.setEnabled(true);
+                }else{
+                    binding.continueButton.setBackgroundColor(requireActivity().getColor(R.color.continue_button_background_color_start));
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+               if(binding.formEditText.getEditText().toString().length() > 0 || binding.formEditText.getEditText() == null){
+                   binding.continueButton.setBackgroundColor(requireActivity().getColor(R.color.continue_button_background_color));
+                   binding.continueButton.setEnabled(true);
+               }else{
+                   binding.continueButton.setBackgroundColor(requireActivity().getColor(R.color.continue_button_background_color_start));
+               }
+            }
+        });
 
         binding.formTextView.setText(R.string.my_first_name);
         binding.formHint.setText(R.string.my_first_name_hint);
@@ -50,4 +72,6 @@ public class NameFragment extends Fragment {
             NavHostFragment.findNavController(this).navigate(R.id.destination_email_fragment, emailFragmentArgs);
         });
     }
+
+
 }
